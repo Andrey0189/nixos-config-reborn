@@ -34,6 +34,7 @@
     silicon
     tldr
     tree
+    ueberzugpp
     unzip
     zip
 
