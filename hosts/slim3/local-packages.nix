@@ -1,10 +1,41 @@
 { pkgs, ... }: {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    gcc
+    # Desktop apps
+    clapper
+    dconf-editor
+    easyeffects
+    gparted
+    gnome-tweaks
+    inkscape
+    # jetbrains.idea-community-bin
+    # jetbrains.pycharm-community-bin
     kdenlive
-    # jetbrains.pycharm-professional
-    # jre8
-    # qemu
-    # quickemu
+    krita
+    mission-center
+    qucs-s
+
+    # CLI utils
+    aria2
+    bind
+    curl
+    htop
+    ipset
+    lshw
+    nmap
+    radare2
+    wget
+
+    # Coding stuff
+    android-tools
+    cargo
+    clang
+    clang-tools
+    gcc
+    gnumake
+    ninja
+    rustc
+    zulu
   ];
 }
