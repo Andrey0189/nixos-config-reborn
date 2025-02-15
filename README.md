@@ -4,27 +4,25 @@ Welcome to my redesigned NixOS configuration built for efficiency and aesthetics
 
 ![screenshot](./screenshots/screenshot1.png)
 
-You can still find my old configuration [here](https://github.com/Andrey0189/nixos-config)
+You can still find Andrey0189's old configuration [here](https://github.com/Andrey0189/nixos-config)
 
 ## ✨ Features
 
 - 🖥️ **Multiple Hosts Support**: Easy to configure for different hosts.
-- 🎨 **Gruvbox Theme**: A perfect blend of vibrant and subtle colors.
-- 🪟 **Hyprland + Waybar**: 10/10 window compositor on Wayland.
 - 🏠 **Home Manager Integration**: lots of stuff configured.
 - 🧇 **Tmux**: with my own hotkeys.
-- 🌟 **Zsh + starship**: Efficient shell setup with lots of aliases.
+- 🌟 **Zsh**: Efficient shell setup with lots of aliases.
 
 ## 🚀 Installation
 
 To get started with this setup, follow these steps:
 
 1. **Install NixOS**: If you haven't already installed NixOS, follow the [NixOS Installation Guide](https://nixos.org/manual/nixos/stable/#sec-installation) for detailed instructions.
+
 2. **Clone the Repository**:
 
-	```bash
-    git clone https://github.com/Andrey0189/nixos-config-reborn
-    cd nixos-config-reborn
+    ```bash
+    git clone https://github.com/TheIIIrd/nixos-workstation-reborn.git ~/.nix && cd ~/.nix
     ```
 
 3. **Copy one of the hosts configuration to set up your own**:
@@ -38,17 +36,40 @@ To get started with this setup, follow these steps:
 4. **Put your `hardware-configuration.nix` file there**:
 
     ```bash
-    cp /etc/nixos/hardware-configuration.nix ./
+    cp --no-preserve=mode /etc/nixos/hardware-configuration.nix .
     ```
 
-5. **Edit `hosts/<your_hostname>/local-packages.nix` and `nixos/packages.nix` files if needed**:
+5. **Edit `hosts/<your_hostname>/local-packages.nix` and `home-manager/home-packages.nix` files if needed**:
 
     ```bash
     vim local-packages.nix
-    vim ../../nixos/packages.nix
+    vim ../../home-manager/home-packages.nix
     ```
 
-6. **Finally, edit the `flake.nix` file**:
+6. **Edit `home-manager/modules/git.nix` and `nixos/modules/graphics/default.nix`**
+
+    ```bash
+    vim ../../home-manager/modules/git.nix
+    vim ../../nixos/modules/graphics/default.nix
+    ```
+
+7. **Specify the parameters for `nixos/modules/zapret.nix`**
+
+    ```bash
+    nix-shell -p zapret --command blockcheck
+    vim ../../nixos/modules/zapret.nix
+    ```
+
+8. **Finally, edit the `flake.nix` file**:
+
+    ```bash
+    sed -i -e 's/amper/<your_username>/g' \
+       -e '/{ hostname = "330-15ARR"; stateVersion = "24.11"; }/d' \
+       -e 's/hostname = "slim3"/hostname = "<your_hostname>"/' \
+       -e 's/stateVersion = "24.05"/stateVersion = "<your_state_version>"/' \
+       -e 's/homeStateVersion = "24.11";/homeStateVersion = "<your_home_manager_state_version>";/' \
+       ~/.nix/flake.nix
+    ```
 
     ```diff
     ...
@@ -66,14 +87,36 @@ To get started with this setup, follow these steps:
     ...
     ```
 
-7. **Rebuilding**:
+9. **Rebuilding**:
 
     ```bash
-    cd nixos-config-reborn
+    cd ~/.nix
     git add .
-    nixos-rebuild switch --flake ./#<hostname>
+    nixos-rebuild boot --flake ./#<hostname>
     # or nixos-install --flake ./#<hostname> if you are installing on a fresh system
-    home-manager switch
+    ```
+
+    ```bash
+    # reboot your system and run
+    nh home switch
+    ```
+
+10. **Configure Flatpak and gnome keybindings switch-input-source if needed**
+
+    ```bash
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark com.github.tchx84.Flatseal
+    ```
+
+    ```bash
+    gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+    ```
+
+11. **Copy corefonts to the home directory**
+
+    ```bash
+    # the path to corefonts-1 may vary
+    cp --no-preserve=mode /nix/store/ciwacrng6v01ih6hl4x6db39k4m41add-corefonts-1/share/fonts/truetype/* ~/.local/share/fonts
     ```
 
 ## 😎 Enjoy!
@@ -83,4 +126,3 @@ To get started with this setup, follow these steps:
 ## 🤝 Contributions
 
 Feel free to fork the repository and submit pull requests if you'd like to contribute improvements. Open issues if you encounter any problems with the config or have ideas for new features.
-
