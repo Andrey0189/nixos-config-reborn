@@ -16,9 +16,5 @@
       draw_borders = true;
       w3m_delay = 0;
     };
-
-    extraConfig = ''
-      default_linemode devicons2
-    '';
   };
 }
