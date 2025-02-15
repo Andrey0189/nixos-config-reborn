@@ -1,7 +1,7 @@
-{ pkgs-unstable, ... }: {
+{ pkgs, ... }: {
   services.zapret = {
     enable = true;
-    package = pkgs-unstable.zapret;
+    package = pkgs.zapret;
 
     udpSupport = true;
     udpPorts = [
