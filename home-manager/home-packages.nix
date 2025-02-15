@@ -5,56 +5,74 @@
     # Packages in each category are sorted alphabetically
 
     # Desktop apps
-    # anki
-    imv
-    mpv
+    fragments
     obs-studio
     obsidian
-    pavucontrol
-    teams-for-linux
-    telegram-desktop
+    protonplus
+    protontricks
+    ptyxis
+    r2modman
+    tenacity
+    tor-browser
+    ungoogled-chromium
     vesktop
+    vscodium
 
     # CLI utils
+    bat
     bc
-    bottom
-    brightnessctl
-    cliphist
+    fastfetch
     ffmpeg
-    ffmpegthumbnailer
+    file
     fzf
+    git
     git-graph
-    grimblast
-    htop
-    ntfs3g
+    lazygit
     mediainfo
-    microfetch
-    playerctl
+    ranger
     ripgrep
-    showmethekey
     silicon
-    udisks
-    ueberzugpp
+    tldr
+    tree
     unzip
-    w3m
-    wget
-    wl-clipboard
-    wtype
-    yt-dlp
     zip
 
     # Coding stuff
-    nodejs
-    python311
+    dotnet-sdk
+    meson
+    mono
+    python312
+    python312Packages.black
+    python312Packages.matplotlib
+    python312Packages.numpy
+    python312Packages.pip
 
-    # WM stuff
-    libsForQt5.xwaylandvideobridge
-    libnotify
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
+    # Extensions
+    gnomeExtensions.appindicator
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.just-perfection
+    gnomeExtensions.quick-lang-switch
+
+    # Customization
+    adw-gtk3
+    tela-circle-icon-theme
+
+    # Fonts
+    corefonts
+    dejavu_fonts
+    jetbrains-mono
+    meslo-lgs-nf
+    noto-fonts
+    noto-fonts-lgc-plus
+    texlivePackages.hebrew-fonts
+    noto-fonts-emoji
+    font-awesome
+    powerline-fonts
+    powerline-symbols
 
     # Other
-    bemoji
     nix-prefetch-scripts
   ];
 }
