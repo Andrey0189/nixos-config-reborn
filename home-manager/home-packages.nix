@@ -55,6 +55,7 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.just-perfection
     gnomeExtensions.quick-lang-switch
+    gnomeExtensions.vitals
 
     # Customization
     adw-gtk3
