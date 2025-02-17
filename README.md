@@ -8,10 +8,10 @@ You can still find Andrey0189's old configuration [here](https://github.com/Andr
 
 ## ✨ Features
 
-- 🖥️ **Multiple Hosts Support**: Easy to configure for different hosts.
+- 🖥️ **Multiple Hosts Support**: easy to configure for different hosts.
 - 🏠 **Home Manager Integration**: lots of stuff configured.
 - 🧇 **Tmux**: with my own hotkeys.
-- 🌟 **Zsh**: Efficient shell setup with lots of aliases.
+- 🌟 **Zsh**: efficient shell setup with lots of aliases.
 
 ## 🚀 Installation
 
