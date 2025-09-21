@@ -56,6 +56,18 @@ output "HDMI-A-1" {
     // position x=1280 y=0
 }
 
+output "Microstep MSI MP251 PC2M334502532" {
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+output "PNP(BNQ) BenQG2222HDL R2B00997026" {
+    scale 1 
+    transform "normal"
+    position x=0 y=-1080
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 4
